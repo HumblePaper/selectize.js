@@ -308,6 +308,7 @@ $.extend(Selectize.prototype, {
 			'change'          : 'onChange',
 			'item_add'        : 'onItemAdd',
 			'item_remove'     : 'onItemRemove',
+			'item_create'	  :	'onItemCreate',
 			'clear'           : 'onClear',
 			'option_add'      : 'onOptionAdd',
 			'option_remove'   : 'onOptionRemove',
@@ -1563,6 +1564,7 @@ $.extend(Selectize.prototype, {
 			self.addOption(data);
 			self.setCaret(caret);
 			self.addItem(value);
+			self.trigger('item_create',value);
 			self.refreshOptions(triggerDropdown && self.settings.mode !== 'single');
 			callback(data);
 		});
